@@ -23,6 +23,7 @@ List* initList(size_t sizeOfData)
 int add(List* head, size_t size, void* data)
 {
     List* newList = (List*) malloc(sizeof(List*));
+    // printf("size of Data : %d\n",sizeof(data));
     newList->node = (struct list_head *) malloc(sizeof(struct list_head));
     newList->node->next = newList->node;
     newList->node->prev = newList->node;
