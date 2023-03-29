@@ -13,9 +13,7 @@ int add(List* head, size_t size, void* data);
 int addAfter(List* head, size_t size, void* data, int index);
 int addBefore(List* head, size_t size, void* data, int index);
 void* get(List* head, int index);
-void* remove(List* head, int index);
+void* delete(List* head, int index);
 void* clear(List* head);
 int size(List* head);
 void* sort(List* head);
-
-
