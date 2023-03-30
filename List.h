@@ -9,11 +9,11 @@ typedef struct list{
 }List;
 
 List* initList();
-int add(List* head, size_t size, void* data);
-int addAfter(List* head, size_t size, void* data, int index);
-int addBefore(List* head, size_t size, void* data, int index);
-void* get(List* head, int index);
-void* delete(List* head, int index);
-void* clear(List* head);
+int addNode(List* head, size_t size, void* data);
+int addNodeAfter(List* head, size_t size, void* data, int index);
+int addNodeBefore(List* head, size_t size, void* data, int index);
+void* getNode(List* head, int index);
+int removeNode(List* head, int index);
+void clear(List* head);
 int size(List* head);
-void* sort(List* head);
+void sort(List* head, int(*comaprator)());
