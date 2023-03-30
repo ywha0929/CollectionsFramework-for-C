@@ -125,7 +125,7 @@ int main(void)
 	    printf("number2 : %d \n",((Data*)getNode(list,i))->number2);
     }
     printf("\nAfter sorting list1\n");
-    printf("%p\n",&firstData);
+    // printf("%p\n",&firstData);
     sort(list,&compare);
     for(int i = 0; i< 3; i++)
     {
@@ -137,7 +137,7 @@ int main(void)
 
 int compare(Data* firstNode, Data* secondNode)
 {
-    printf("compare\n");
+    // printf("compare\n");
     // printf("%p\n",firstNode);
     if(firstNode->number1 <= secondNode->number1)
     {

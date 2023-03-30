@@ -143,9 +143,9 @@ void sort(List* head, int(*comaprator)())
     {
         for(int j= 0; j<size-i-1; j++)
         {
-            printf("%d %d\n",i,j);
+            // printf("%d %d\n",i,j);
             List* firstNode = (List*)_getNode(head,j);
-            printf("%p\n",firstNode->data);
+            // printf("%p\n",firstNode->data);
             List* secondNode = _getNode(head,j+1);
             
             if(comaprator(firstNode->data, secondNode->data) == 0)
