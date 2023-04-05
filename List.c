@@ -60,14 +60,15 @@ int addNodeAfter(List* head, size_t size, void* data, int index)
 	{
 		if(i == index)
 		{
-			list_add(newList->node,cur->node);
+			list_add(newList->node,cur);
+			return 0;
 		}
 		i++;	
 
 	}
 	// printf("targetList address : %p\n",newList);
-	return 0;
-
+	//invalid index
+	return 1;
 
 }
 
@@ -83,18 +84,25 @@ int addNodeBefore(List* head, size_t size, void* data, int index)
    	// printf("targetList address : %p\n",newList);
 	struct list_head* cur = NULL;
 	int i = 0;
+
+	if(index == 0){
+		list_add(newList->node, head->node->prev);
+		return 0;
+	}
+
 	list_for_each(cur, head->node)
-	{
+	{	
 		if(i == index-1)
 		{
-			list_add(newList->node,cur->node);
+			list_add(newList->node,cur);
+			return 0;
 		}
 		i++;	
 
 	}
 	// printf("targetList address : %p\n",newList);
-	return 0;
-
+	//invalid index
+	return 1;
 
 }
 
