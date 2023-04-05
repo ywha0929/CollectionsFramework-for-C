@@ -60,7 +60,7 @@ int addNodeAfter(List* head, size_t size, void* data, int index)
 	{
 		if(i == index)
 		{
-			list_add(newList->node,cur->node);
+			list_add(newList->node,cur);
 		}
 		i++;	
 
@@ -87,7 +87,7 @@ int addNodeBefore(List* head, size_t size, void* data, int index)
 	{
 		if(i == index-1)
 		{
-			list_add(newList->node,cur->node);
+			list_add(newList->node,cur);
 		}
 		i++;	
 

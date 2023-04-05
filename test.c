@@ -132,7 +132,35 @@ int main(void)
         printf("number1 : %d \t",((Data*)getNode(list,i))->number1);
 	    printf("number2 : %d \n",((Data*)getNode(list,i))->number2);
     }
-    
+	Data fourthData;
+	fourthData.number1 = 8;
+	fourthData.number2 = 7;
+	addNodeAfter(list,sizeof(Data),&fourthData,0);
+	printf("\nAfter inserting after node 0\n");
+	for(int i = 0; i< 4; i++)
+    {
+        printf("number1 : %d \t",((Data*)getNode(list,i))->number1);
+	    printf("number2 : %d \n",((Data*)getNode(list,i))->number2);
+    }
+    Data fifthData;
+	fifthData.number1 = 10;
+	fifthData.number2 = 6;
+	addNodeBefore(list,sizeof(Data),&fifthData,2);
+	printf("\nAfter inserting before  node 2\n");
+	for(int i = 0; i< 5; i++)
+    {
+        printf("number1 : %d \t",((Data*)getNode(list,i))->number1);
+	    printf("number2 : %d \n",((Data*)getNode(list,i))->number2);
+    }
+	printf("\nAfter sorting list1\n");
+    // printf("%p\n",&firstData);
+    sort(list,&compare);
+    for(int i = 0; i< 5; i++)
+    {
+        printf("number1 : %d \t",((Data*)getNode(list,i))->number1);
+	    printf("number2 : %d \n",((Data*)getNode(list,i))->number2);
+    }
+
 }
 
 int compare(Data* firstNode, Data* secondNode)
