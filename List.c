@@ -13,21 +13,28 @@ typedef struct list{
 
 List* initList(size_t sizeOfData)
 {
-    List* thisList = (List*) malloc(sizeof(List));
-    thisList->node = (struct list_head *) malloc(sizeof(struct list_head));
+    // List* thisList = (List*) malloc(sizeof(List));
+    // thisList->node = (struct list_head *) malloc(sizeof(struct list_head));
+    List* thisList = (List*) calloc(1,sizeof(List));
+    thisList->node = (struct list_head *) calloc(1,sizeof(struct list_head));
     thisList->node->next = thisList->node;
     thisList->node->prev = thisList->node;
-    thisList->data = malloc(sizeof(sizeOfData));
+    // thisList->data = malloc(sizeof(sizeOfData));
+	thisList->data = calloc(1,sizeof(sizeOfData));
+	return thisList;
 }
 
 int addNode(List* head, size_t size, void* data)
 {
-    List* newList = (List*) malloc(sizeof(List*));
+    // List* newList = (List*) malloc(1,sizeof(List*));
+    List* newList = (List*) calloc(1,sizeof(List*));
     // printf("size of Data : %d\n",sizeof(data));
-    newList->node = (struct list_head *) malloc(sizeof(struct list_head));
+    // newList->node = (struct list_head *) malloc(1,sizeof(struct list_head));
+    newList->node = (struct list_head *) calloc(1,sizeof(struct list_head));
     newList->node->next = newList->node;
     newList->node->prev = newList->node;
-    newList->data = malloc(size);
+    // newList->data = malloc(1,size);
+    newList->data = calloc(1,size);
     memcpy((newList->data),data,size);
     // printf("%lld\n",*((int*)newList->data));
     // printf("%lld\n",*((int*)data));
@@ -113,9 +120,9 @@ int removeNode(List* head, int index)
     // // printf("%p\n",targetList->node->next);
     // targetList->node->next->prev = targetList->node->prev;
     list_del(targetList->node);
-    // free(targetList->node);
-    // free(targetList->data);
-    // free(targetList);
+    free(targetList->node);
+    free(targetList->data);
+    free(targetList);
     return 0;
 }
 
@@ -129,9 +136,9 @@ void clear(List* head)
     {
         targetList = list_entry(head->node->next,List,node)-2;
         list_del(targetList->node);
-        // free(targetList->node);
-        // free(targetList->data);
-        // free(targetList);
+        free(targetList->node);
+        free(targetList->data);
+        free(targetList);
     }
     return;
 }

@@ -110,7 +110,7 @@ int main(void)
 
     
     printf("\nAfter clearing list2\n");
-    // clear(list2);
+    clear(list2);
     printf("getNode(list2,0) return value : %p\n",getNode(list2,0));
     
     Data thirdData;
