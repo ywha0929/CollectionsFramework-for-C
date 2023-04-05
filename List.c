@@ -44,6 +44,60 @@ int addNode(List* head, size_t size, void* data)
     return 0;
 }
 
+int addNodeAfter(List* head, size_t size, void* data, int index)
+{
+	List* newList = (List*) calloc(1,sizeof(List*));
+	newList->node = (struct list_head *) calloc(1,sizeof(struct list_head));
+   	INIT_LIST_HEAD(newList->node);
+   	newList->data = calloc(1,size);
+   	memcpy((newList->data),data,size);
+    	// printf("%lld\n",*((int*)newList->data));
+   	// printf("%lld\n",*((int*)data));
+   	// printf("targetList address : %p\n",newList);
+	struct list_head* cur = NULL;
+	int i = 0;
+	list_for_each(cur, head->node)
+	{
+		if(i == index)
+		{
+			list_add(newList->node,cur->node);
+		}
+		i++;	
+
+	}
+	// printf("targetList address : %p\n",newList);
+	return 0;
+
+
+}
+
+int addNodeBefore(List* head, size_t size, void* data, int index)
+{
+	List* newList = (List*) calloc(1,sizeof(List*));
+	newList->node = (struct list_head *) calloc(1,sizeof(struct list_head));
+   	INIT_LIST_HEAD(newList->node);
+   	newList->data = calloc(1,size);
+   	memcpy((newList->data),data,size);
+    	// printf("%lld\n",*((int*)newList->data));
+   	// printf("%lld\n",*((int*)data));
+   	// printf("targetList address : %p\n",newList);
+	struct list_head* cur = NULL;
+	int i = 0;
+	list_for_each(cur, head->node)
+	{
+		if(i == index-1)
+		{
+			list_add(newList->node,cur->node);
+		}
+		i++;	
+
+	}
+	// printf("targetList address : %p\n",newList);
+	return 0;
+
+
+}
+
 void* getNode(List* head, int index)
 {
 
