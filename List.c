@@ -5,7 +5,6 @@
 
 
 
-
 typedef struct list{
     struct list_head* node;
     void* data;
@@ -58,4 +57,16 @@ void* get(List* head, int index)
         }
     }
     return NULL;
+}
+
+
+int size(List* head)
+{
+	struct list_head* cur;
+	int i = 0;
+	list_for_each(cur,head->node)
+	{
+			i++;
+	}
+	return i;
 }
