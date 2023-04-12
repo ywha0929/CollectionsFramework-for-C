@@ -4,13 +4,21 @@
 #include <string.h>
 
 
-
-
 typedef struct list{
     struct list_head* node;
     void* data;
 }List;
 
+int size(List* head)
+{
+	struct list_head* cur;
+	int i = 0;
+	list_for_each(cur,head->node)
+	{
+			i++;
+	}
+	return i;
+}
 List* initList(size_t sizeOfData)
 {
     // List* thisList = (List*) malloc(sizeof(List));
@@ -184,9 +192,9 @@ void clear(List* head)
 {
     struct list_head* cur;
     List* targetList = NULL;
-    int size = 2;
-    // int size = size(head);
-    for(int i = 0; i< size; i++)
+    int Size = size(head);
+    // int Size = size(head);
+    for(int i = 0; i< Size; i++)
     {
         targetList = list_entry(head->node->next,List,node)-2;
         list_del(targetList->node);
@@ -199,10 +207,10 @@ void clear(List* head)
 
 void sort(List* head, int(*comaprator)())
 {
-    int size = 3;
-    for(int i = 0; i< size; i++)
+    int Size = size(head);
+    for(int i = 0; i< Size; i++)
     {
-        for(int j= 0; j<size-i-1; j++)
+        for(int j= 0; j<Size-i-1; j++)
         {
             // printf("%d %d\n",i,j);
             List* firstNode = (List*)_getNode(head,j);
@@ -225,3 +233,4 @@ void sort(List* head, int(*comaprator)())
         }
     }
 }
+
